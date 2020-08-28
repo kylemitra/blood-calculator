@@ -14,27 +14,17 @@ def interface():
             LDL_driver()
 
 def HDL_driver():
-    # Create get input function
-    HDLInput = inputHDL()
-
-    # Check if HDL is normal
+    HDLInput = inputFunc('HDL')
     calculatedHDL = HDLChecker(HDLInput)
-
-    # Output
-    outputHDL(calculatedHDL)
+    outputFunc('HDL', calculatedHDL)
 
 def LDL_driver():
-    # Create get input function
-    LDLInput = inputLDL()
-
-    # Check if HDL is normal
+    LDLInput = inputFunc('LDL')
     calculatedLDL = LDLChecker(LDLInput)
+    outputFunc('LDL', calculatedLDL)
 
-    # Output
-    outputLDL(calculatedLDL)
-
-def inputHDL():
-    myInput = input('Enter your HDL: ')
+def inputFunc(type):
+    myInput = input('Enter your {}: '.format(type))
     return int(myInput)
 
 def HDLChecker(input):
@@ -45,13 +35,6 @@ def HDLChecker(input):
     else:
         output = "Borderline Low"
     return output
-
-def outputHDL(HDL):
-    print("Your HDL level is {}".format(HDL))
-
-def inputLDL():
-    myInput = input('Enter your LDL: ')
-    return int(myInput)
 
 def LDLChecker(input):
     if input > 130:
@@ -64,7 +47,7 @@ def LDLChecker(input):
         output = "Very High"
     return output
 
-def outputLDL(LDL):
-    print("Your LDL level is {}".format(LDL))
+def outputFunc(type, value):
+    print("Your {} level is {}".format(type, value))
 
 interface()
