@@ -2,8 +2,9 @@ def interface():
     print("My Program")
     while True:
         print("Options:")
-        print("1 - Run HDL Driver")
-        print("2 - Run LDL Driver")
+        print("1 - Check HDL")
+        print("2 - Check LDL")
+        print("3 - Check Cholesterol")
         print("9 - Quit")
         choice = input("Enter your choice: ")
         if choice == '9':
@@ -12,6 +13,8 @@ def interface():
             HDL_driver()
         elif choice == '2':
             LDL_driver()
+        elif choice == '3':
+            cholesterol_driver()
 
 def HDL_driver():
     HDLInput = inputFunc('HDL')
@@ -22,6 +25,11 @@ def LDL_driver():
     LDLInput = inputFunc('LDL')
     calculatedLDL = LDLChecker(LDLInput)
     outputFunc('LDL', calculatedLDL)
+
+def cholesterol_driver():
+    cInput = inputFunc('Cholesterol')
+    calculatedChol = cholesterolChecker(cInput)
+    outputFunc('Cholesterol', calculatedChol)
 
 def inputFunc(type):
     myInput = input('Enter your {}: '.format(type))
@@ -43,6 +51,15 @@ def LDLChecker(input):
         output = "Borderline High"
     elif 160 <= input <=189:
         output = "High"
+    else:
+        output = "Very High"
+    return output
+
+def cholesterolChecker(input):
+    if input < 200:
+        output = "Normal"
+    elif 200 <= input <= 239:
+        output = "Borderline High"
     else:
         output = "Very High"
     return output
