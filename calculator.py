@@ -23,7 +23,7 @@ def HDL_driver():
 
 def inputFunc():
     myInput = input('Enter your HDL: ')
-    return myInput
+    return int(myInput)
 
 def HDLChecker(input):
     if input >= 60:
