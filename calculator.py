@@ -2,7 +2,7 @@ def interface():
     print("My Program")
     while True:
         print("Options:")
-        print("1 - HDL")
+        print("1 - Run HDL Driver")
         print("9 - Quit")
         choice = input("Enter your choice: ")
         if choice == '9':
