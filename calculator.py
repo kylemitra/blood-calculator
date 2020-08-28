@@ -12,7 +12,7 @@ def interface():
 
 def HDL_driver():
     # Create get input function
-    HDLInput = input()
+    HDLInput = inputFunc()
 
     # Check if HDL is normal
     calculatedHDL = HDLChecker(HDLInput)
@@ -21,7 +21,7 @@ def HDL_driver():
     outputDisplay(calculatedHDL)
 
 
-def input():
+def inputFunc():
     myInput = input('Enter your HDL: ')
     return myInput
 
