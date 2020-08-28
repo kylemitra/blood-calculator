@@ -2,8 +2,9 @@ def interface():
     print("My Program")
     while True:
         print("Options:")
-        print("1 - Run HDL Driver")
-        print("2 - Run LDL Driver")
+        print("1 - Check HDL")
+        print("2 - Check LDL")
+        print("3 - Check Cholesterol")
         print("9 - Quit")
         choice = input("Enter your choice: ")
         if choice == '9':
@@ -12,29 +13,26 @@ def interface():
             HDL_driver()
         elif choice == '2':
             LDL_driver()
+        elif choice == '3':
+            cholesterol_driver()
 
 def HDL_driver():
-    # Create get input function
-    HDLInput = inputHDL()
-
-    # Check if HDL is normal
+    HDLInput = inputFunc('HDL')
     calculatedHDL = HDLChecker(HDLInput)
-
-    # Output
-    outputHDL(calculatedHDL)
+    outputFunc('HDL', calculatedHDL)
 
 def LDL_driver():
-    # Create get input function
-    LDLInput = inputLDL()
-
-    # Check if HDL is normal
+    LDLInput = inputFunc('LDL')
     calculatedLDL = LDLChecker(LDLInput)
+    outputFunc('LDL', calculatedLDL)
 
-    # Output
-    outputLDL(calculatedLDL)
+def cholesterol_driver():
+    cInput = inputFunc('Cholesterol')
+    calculatedChol = cholesterolChecker(cInput)
+    outputFunc('Cholesterol', calculatedChol)
 
-def inputHDL():
-    myInput = input('Enter your HDL: ')
+def inputFunc(type):
+    myInput = input('Enter your {}: '.format(type))
     return int(myInput)
 
 def HDLChecker(input):
@@ -45,13 +43,6 @@ def HDLChecker(input):
     else:
         output = "Borderline Low"
     return output
-
-def outputHDL(HDL):
-    print("Your HDL level is {}".format(HDL))
-
-def inputLDL():
-    myInput = input('Enter your LDL: ')
-    return int(myInput)
 
 def LDLChecker(input):
     if input > 130:
@@ -64,7 +55,16 @@ def LDLChecker(input):
         output = "Very High"
     return output
 
-def outputLDL(LDL):
-    print("Your LDL level is {}".format(LDL))
+def cholesterolChecker(input):
+    if input < 200:
+        output = "Normal"
+    elif 200 <= input <= 239:
+        output = "Borderline High"
+    else:
+        output = "Very High"
+    return output
+
+def outputFunc(type, value):
+    print("Your {} level is {}".format(type, value))
 
 interface()
