@@ -32,6 +32,4 @@ def HDLChecker(input):
         output = "Borderline Low"
     return output
 
-
-
 interface()
