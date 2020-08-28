@@ -18,6 +18,7 @@ def HDL_driver():
     calculatedHDL = HDLChecker(HDLInput)
 
     # Output
+    outputDisplay(calculatedHDL)
 
 
 def input():
@@ -32,5 +33,8 @@ def HDLChecker(input):
     else:
         output = "Borderline Low"
     return output
+
+def outputDisplay(HDL):
+    print("Your HDL level is {}".format(HDL))
 
 interface()
