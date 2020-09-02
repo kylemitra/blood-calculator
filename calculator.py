@@ -67,4 +67,5 @@ def cholesterolChecker(input):
 def outputFunc(type, value):
     print("Your {} level is {}".format(type, value))
 
-interface()
+if __name__ == "__main__":
+    interface()
